@@ -1,5 +1,5 @@
 name: API
-description: Example implementation
+description: Example API
 core: 8.x
-package: Project
+package: Example
 type: module
