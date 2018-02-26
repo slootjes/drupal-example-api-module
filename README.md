@@ -1,12 +1,19 @@
 # Drupal Example API Module
 
-An *example* module on how to use controller annotations, controllers as services, fractal and Symfony For
-to create custom API endpoints in Drupal similar like it can be done in Symfony Framework.
+An *example* module which demonstrates on how to create custom API endpoints with the use of:
+
+- [Controller Annotations](https://github.com/mediamonks/drupal-controller-annotations)
+- [MediaMonks Rest API](https://github.com/mediamonks/php-rest-api)
+- [Fractal](http://fractal.thephpleague.com)
+- [Symfony Form](https://symfony.com/doc/current/components/form.html)
+- [Symfony Validator](https://symfony.com/doc/current/components/validator.html)
+- [Controllers as Services](https://symfony.com/doc/current/controller/service.html)
+- [Service Autowiring](https://symfony.com/doc/current/service_container/autowiring.html)
 
 ## Requirements
 
-- **PHP >= 7.1.0**
-- **Drupal >= 8.5**
+- PHP >= 7.1.0
+- Drupal >= 8.5
 
 ## Installation
 
