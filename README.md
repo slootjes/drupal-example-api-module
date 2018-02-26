@@ -1,6 +1,6 @@
 # Drupal Example API Module
 
-An example module on how to use controller annotations, controllers as services, fractal and Symfony For
+An *example* module on how to use controller annotations, controllers as services, fractal and Symfony For
 to create custom API endpoints in Drupal similar like it can be done in Symfony Framework.
 
 ## Installation
@@ -23,3 +23,8 @@ composer require drupal/api-example@dev-master
 ```
 
 Then enable the module like you're used to.
+
+## Disclaimer
+
+Although everything should be production ready this module is created for educational and research purposes only. 
+I cannot be held responsible for any issues that occur from you using this repository.
