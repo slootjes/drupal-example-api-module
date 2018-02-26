@@ -1,0 +1,21 @@
+{
+    "name": "drupal/api",
+    "type": "drupal-module",
+    "homepage": "https://mediamonks.com/",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Robert Slootjes",
+            "email": "robert@mediamonks.com",
+            "homepage": "https://github.com/slootjes"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "drupal/controller_annotations": "^1.0",
+        "symfony/form": "^3.4",
+        "symfony/validator": "^3.4",
+        "mediamonks/rest-api": "^1.0",
+        "league/fractal": "^0.17.0"
+    }
+}

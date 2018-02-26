@@ -1,0 +1,59 @@
+services:
+  # rest api
+  MediaMonks\RestApi\EventSubscriber\RestApiEventSubscriber:
+    autowire: true
+    tags:
+      - { name: event_subscriber }
+
+  MediaMonks\RestApi\Request\PathRequestMatcher:
+    arguments: ['/api']
+
+  MediaMonks\RestApi\Request\RequestTransformer:
+    autowire: true
+
+  MediaMonks\RestApi\Response\ResponseTransformer:
+    autowire: true
+
+  MediaMonks\RestApi\Serializer\JsonSerializer: ~
+
+  MediaMonks\RestApi\Model\ResponseModel: ~
+
+  MediaMonks\RestApi\Model\ResponseModelFactory:
+    autowire: true
+
+  # fractal
+  League\Fractal\Manager:
+    calls:
+      - [setSerializer, ['@Drupal\api\Serializer\ArraySerializer']]
+
+  Drupal\api\Serializer\ArraySerializer: ~
+
+  Drupal\api\Transformer\ArticleTransformer: ~
+
+  # form
+  Symfony\Component\Validator\Validator\ValidatorInterface:
+    factory: ['Symfony\Component\Validator\Validation', createValidator]
+
+  Symfony\Component\Form\FormFactoryInterface:
+    factory: 'Symfony\Component\Form\FormFactoryBuilder:getFormFactory'
+
+  Symfony\Component\Form\Extension\Core\CoreExtension: ~
+
+  Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension: ~
+
+  Symfony\Component\Form\Extension\Validator\ValidatorExtension:
+    autowire: true
+
+  Symfony\Component\Form\FormFactoryBuilder:
+    calls:
+      - [addExtension, ['@Symfony\Component\Form\Extension\Core\CoreExtension']]
+      - [addExtension, ['@Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension']]
+      - [addExtension, ['@Symfony\Component\Form\Extension\Validator\ValidatorExtension']]
+
+  # autowiring aliases
+  Drupal\Core\Entity\EntityTypeManagerInterface:
+      alias: 'entity_type.manager'
+
+  # controllers
+  Drupal\api\Controller\ArticleController:
+    autowire: true

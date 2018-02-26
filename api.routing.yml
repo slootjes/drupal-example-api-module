@@ -1,0 +1,5 @@
+api_annotations:
+    path: /api
+    options:
+        type: annotation
+        module: api
