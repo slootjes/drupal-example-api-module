@@ -70,9 +70,9 @@ abstract class AbstractTransformController
         $offset = $request->query->getInt('offset');
         $limit = $request->query->getInt('limit', 25);
 
-        $entityStorage = $this->getNodeStorage();
+        $nodeStorage = $this->getNodeStorage();
 
-        $query = $entityStorage->getQuery()
+        $query = $nodeStorage->getQuery()
             ->condition('type', $type)
             ->sort('created', 'DESC');
 
@@ -82,7 +82,7 @@ abstract class AbstractTransformController
         $ids = $query->range($offset, $limit)->execute();
 
         return new OffsetPaginatedResponse(
-            $this->transformCollection($entityStorage->loadMultiple($ids)),
+            $this->transformCollection($nodeStorage->loadMultiple($ids)),
             $offset,
             $limit,
             $count
@@ -140,17 +140,16 @@ abstract class AbstractTransformController
     protected function handleForm(Request $request, string $formType, string $nodeType): Response
     {
         $form = $this->formFactory->create($formType);
-
         $form->submit($request->request->all());
-        if ($form->isSubmitted() && $form->isValid()) {
-            $node = $this->getNodeStorage()->create(
-                array_merge($form->getData(), ['type' => $nodeType])
-            );
-            $node->save();
-
-            return new Response(null, Response::HTTP_CREATED);
+        if (!$form->isValid()) {
+            throw new FormValidationException($form);
         }
 
-        throw new FormValidationException($form);
+        $node = $this->getNodeStorage()->create(
+            $form->getData() + ['type' => $nodeType]
+        );
+        $node->save();
+
+        return new Response($node->id(), Response::HTTP_CREATED);
     }
 }

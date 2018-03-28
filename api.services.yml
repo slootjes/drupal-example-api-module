@@ -6,19 +6,26 @@ services:
       - { name: event_subscriber }
 
   MediaMonks\RestApi\Request\PathRequestMatcher:
-    arguments: ['/api']
+    public: false
+    arguments:
+      - '/api'
 
   MediaMonks\RestApi\Request\RequestTransformer:
+    public: false
     autowire: true
 
   MediaMonks\RestApi\Response\ResponseTransformer:
+    public: false
     autowire: true
 
-  MediaMonks\RestApi\Serializer\JsonSerializer: ~
+  MediaMonks\RestApi\Serializer\JsonSerializer:
+    public: false
 
-  MediaMonks\RestApi\Model\ResponseModel: ~
+  MediaMonks\RestApi\Model\ResponseModel:
+    public: false
 
   MediaMonks\RestApi\Model\ResponseModelFactory:
+    public: false
     autowire: true
 
   # fractal
