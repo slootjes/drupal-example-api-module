@@ -12,8 +12,8 @@ An *example* module which demonstrates on how to create custom API endpoints wit
 
 ## Requirements
 
-- PHP >= 7.1.0
-- Drupal >= 8.5
+- PHP  7.2+
+- Drupal 8.6+
 
 ## Installation
 

@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "mediamonks/rest-api": "^1.0",
         "drupal/controller_annotations": "^1.0",
         "league/fractal": "^0.17.0",
