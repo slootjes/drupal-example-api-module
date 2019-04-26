@@ -36,5 +36,4 @@ Then enable the module *Controller Annotations* and *Example API* module like yo
 
 ## Disclaimer
 
-Although everything should be production ready this module is created for educational and research purposes only. 
-I cannot be held responsible for any issues that occur from you using this repository.
+This module is created for *educational and research purposes*. Most examples are not following Drupal security best practices and thus are not meant to be used as-is. I cannot be held responsible for any issues that occur from you using these examples.
